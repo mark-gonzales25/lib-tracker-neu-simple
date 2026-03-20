@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>NEU Library Prototype</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Main Landing Page -->
+  <div id="main-page">
+    <h1>NEU Library System</h1>
+    <p>Select your role:</p>
+    <div class="role-buttons">
+      <button onclick="showLogin('student')">Student Login</button>
+      <button onclick="showLogin('admin')">Admin Login</button>
+    </div>
+  </div>
+
+  <!-- Student Login -->
+  <div id="student-login" class="hidden">
+    <h2>Student Login</h2>
+    <input type="text" id="student-email" placeholder="Enter NEU Email">
+    <button onclick="studentLogin()">Login</button>
+    <button onclick="goBack()">Back</button>
+  </div>
+
+  <!-- Admin Login -->
+  <div id="admin-login" class="hidden">
+    <h2>Admin Login</h2>
+    <input type="text" id="admin-email" placeholder="Enter Admin Email">
+    <button onclick="adminLogin()">Login</button>
+    <button onclick="goBack()">Back</button>
+  </div>
+
+  <!-- Student Screen -->
+  <div id="student-screen" class="hidden">
+    <h2 id="student-msg"></h2>
+    <button onclick="logout()">Logout</button>
+  </div>
+
+  <!-- Admin Dashboard -->
+  <div id="admin-screen" class="hidden">
+    <h2>Admin Dashboard</h2>
+    <button onclick="logout()">Logout</button>
+
+    <div class="filters">
+      <button onclick="filterStats('today')">Today</button>
+      <button onclick="filterStats('week')">This Week</button>
+      <button onclick="filterStats('month')">This Month</button>
+      <button onclick="filterStats('year')">This Year</button>
+    </div>
+
+    <div id="stats-cards" class="cards"></div>
+
+    <h3>Visitor Logs</h3>
+    <input type="text" id="search" placeholder="Search by name/email/student number/college" onkeyup="searchLogs()">
+    <div class="filters">
+      <button onclick="filterLogs('today')">Today</button>
+      <button onclick="filterLogs('week')">This Week</button>
+      <button onclick="filterLogs('month')">This Month</button>
+      <button onclick="filterLogs('year')">This Year</button>
+      <button onclick="filterLogs('all')">All</button>
+    </div>
+    <table id="visitor-table"></table>
+    <button>Export CSV</button>
+
+    <h3>User Management</h3>
+    <table id="user-table"></table>
+    <button>Export CSV</button>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
